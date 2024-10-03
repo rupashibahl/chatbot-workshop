@@ -4,15 +4,15 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.embeddings.gemini import GeminiEmbedding
 
 
-st.set_page_config(page_title="Chat with an expert on the works of Rabindranath Tagore", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
-st.title("Chat with an export on the works of Rabindranath Tagore")
+st.set_page_config(page_title="Chat with an expert on Badminton", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.title("Chat with an expert on Badminton")
 st.info("Check out the full tutorial to build this app in our [blog post](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/)", icon="📃")
 
 if "messages" not in st.session_state.keys():  # Initialize the chat messages history
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content": "Ask me a question about Rabindranath Tagore!",
+            "content": "Ask me a question about Badminton!",
         }
     ]
 
@@ -27,7 +27,7 @@ def load_data():
     
     Settings.llm = Gemini(
         model="models/gemini-1.5-flash",
-        temperature=0.2,
+        temperature=0.21,
         system_prompt="""You are an expert at badminton, and you love to use your advice to help shuttlers improve.
         Answer the question using the provided documents, which contain relevant skills in terms of learning the basics about badminton.
         The context for all questions is provided, and the texts available to you. Whenver possible, include a quotation from the provided excerpts of the texts to illustrate your point.
